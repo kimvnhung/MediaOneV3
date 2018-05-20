@@ -8,17 +8,17 @@ package Main;
 import java.util.ArrayList;
 
 import Database.DatabaseConnection;
-import DoanhThu.ChiPhiPhatSinh;
-import DoanhThu.DoanhThuLoiNhuan;
-import QuanLyNhanVien.NhanVienTable;
-import QuanLyNhanVien.NvBanHang;
-import QuanLyNhanVien.NvThuNgan;
-import QuanLyNhanVien.ThemNv;
-import QuanLySanPham.DsCacLoaiSach;
-import QuanLySanPham.DsDiaNhac;
-import QuanLySanPham.DsDiaPhim;
-import QuanLySanPham.NhapHang;
-import ThanhToan.ThanhToan;
+import DoanhThu.PanelChiPhiPhatSinh;
+import DoanhThu.PanelDoanhThuLoiNhuan;
+import QuanLyNhanVien.PanelNhanVienTable;
+import QuanLyNhanVien.PanelNvBanHang;
+import QuanLyNhanVien.PanelNvThuNgan;
+import QuanLyNhanVien.PanelThemNv;
+import QuanLySanPham.PanelDsCacLoaiSach;
+import QuanLySanPham.PanelDsDiaNhac;
+import QuanLySanPham.PanelDsDiaPhim;
+import QuanLySanPham.PanelNhapHang;
+import ThanhToan.PanelThanhToan;
 import com.sun.glass.events.WindowEvent;
 import java.awt.Graphics;
 import java.sql.SQLException;
@@ -70,11 +70,11 @@ public class HomeFrame extends javax.swing.JFrame {
         if(cuaHang.isAdmin(username)){
             menuitThemNhanVien.setEnabled(true);
             menuitDsNvThuNgan.setEnabled(true);
-            menuitDsNvTiepThi.setEnabled(true);
+            menuitDsNvBanHang.setEnabled(true);
         }else{
             menuitThemNhanVien.setEnabled(false);
             menuitDsNvThuNgan.setEnabled(false);
-            menuitDsNvTiepThi.setEnabled(false);
+            menuitDsNvBanHang.setEnabled(false);
         }
     }
     
@@ -95,7 +95,7 @@ public class HomeFrame extends javax.swing.JFrame {
         menuQuanLyNhanVien = new javax.swing.JMenu();
         menuitThemNhanVien = new javax.swing.JMenuItem();
         menuitDsNvThuNgan = new javax.swing.JMenuItem();
-        menuitDsNvTiepThi = new javax.swing.JMenuItem();
+        menuitDsNvBanHang = new javax.swing.JMenuItem();
         menuItDangXuat = new javax.swing.JMenuItem();
         menuQuanLySp = new javax.swing.JMenu();
         menuitNhapKho = new javax.swing.JMenuItem();
@@ -111,7 +111,6 @@ public class HomeFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(300, 50));
         setName("Trang Chủ"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(800, 550));
         setResizable(false);
 
         javax.swing.GroupLayout paneHomeLayout = new javax.swing.GroupLayout(paneHome);
@@ -145,14 +144,14 @@ public class HomeFrame extends javax.swing.JFrame {
         });
         menuQuanLyNhanVien.add(menuitDsNvThuNgan);
 
-        menuitDsNvTiepThi.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.ALT_MASK));
-        menuitDsNvTiepThi.setText("Nhân Viên Bán Hàng");
-        menuitDsNvTiepThi.addActionListener(new java.awt.event.ActionListener() {
+        menuitDsNvBanHang.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.ALT_MASK));
+        menuitDsNvBanHang.setText("Nhân Viên Bán Hàng");
+        menuitDsNvBanHang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuitDsNvTiepThiActionPerformed(evt);
+                menuitDsNvBanHangActionPerformed(evt);
             }
         });
-        menuQuanLyNhanVien.add(menuitDsNvTiepThi);
+        menuQuanLyNhanVien.add(menuitDsNvBanHang);
 
         menuItDangXuat.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_MASK));
         menuItDangXuat.setText("Đăng Xuất");
@@ -259,50 +258,50 @@ public class HomeFrame extends javax.swing.JFrame {
 
     private void menuitDsNvThuNganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuitDsNvThuNganActionPerformed
         // TODO add your handling code here:
-        this.setContentPane(new NvThuNgan());
+        this.setContentPane(new PanelNvThuNgan());
         this.invalidate();
         this.validate();
         
     }//GEN-LAST:event_menuitDsNvThuNganActionPerformed
 
-    private void menuitDsNvTiepThiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuitDsNvTiepThiActionPerformed
+    private void menuitDsNvBanHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuitDsNvBanHangActionPerformed
         // TODO add your handling code here:
-        this.setContentPane(new NvBanHang());
+        this.setContentPane(new PanelNvBanHang());
         this.invalidate();
         this.validate();
-    }//GEN-LAST:event_menuitDsNvTiepThiActionPerformed
+    }//GEN-LAST:event_menuitDsNvBanHangActionPerformed
 
     private void menuitThemNhanVienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuitThemNhanVienActionPerformed
         // TODO add your handling code here:
-        this.setContentPane(new ThemNv());
+        this.setContentPane(new PanelThemNv());
         this.invalidate();
         this.validate();
     }//GEN-LAST:event_menuitThemNhanVienActionPerformed
 
     private void menuitMauDonThanhToanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuitMauDonThanhToanActionPerformed
         // TODO add your handling code here:
-        this.setContentPane(new ThanhToan());
+        this.setContentPane(new PanelThanhToan());
         this.invalidate();
         this.validate();
     }//GEN-LAST:event_menuitMauDonThanhToanActionPerformed
 
     private void menuitNhapKhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuitNhapKhoActionPerformed
         // TODO add your handling code here:
-        this.setContentPane(new NhapHang());
+        this.setContentPane(new PanelNhapHang());
         this.invalidate();
         this.validate();
     }//GEN-LAST:event_menuitNhapKhoActionPerformed
 
     private void menuitDsDiaNhacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuitDsDiaNhacActionPerformed
         // TODO add your handling code here:
-        this.setContentPane(new DsDiaNhac());
+        this.setContentPane(new PanelDsDiaNhac());
         this.invalidate();
         this.validate();
     }//GEN-LAST:event_menuitDsDiaNhacActionPerformed
 
     private void menuitChiPhiKhacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuitChiPhiKhacActionPerformed
         // TODO add your handling code here:
-        this.setContentPane(new ChiPhiPhatSinh());
+        this.setContentPane(new PanelChiPhiPhatSinh());
         this.invalidate();
         this.validate();
     }//GEN-LAST:event_menuitChiPhiKhacActionPerformed
@@ -310,27 +309,29 @@ public class HomeFrame extends javax.swing.JFrame {
     private void menuitDoanhThuLoiNhuanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuitDoanhThuLoiNhuanActionPerformed
         try {
             // TODO add your handling code here:
-            this.setContentPane(new DoanhThuLoiNhuan());
+            this.setContentPane(new PanelDoanhThuLoiNhuan());
             this.invalidate();
             this.validate();
         } catch (ParseException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage());
         } catch (CloneNotSupportedException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage());
+        } catch (Exception ex) {
+            
         }
         
     }//GEN-LAST:event_menuitDoanhThuLoiNhuanActionPerformed
 
     private void menuitDsCacLoaiSachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuitDsCacLoaiSachActionPerformed
         // TODO add your handling code here:
-        this.setContentPane(new DsCacLoaiSach());
+        this.setContentPane(new PanelDsCacLoaiSach());
         this.invalidate();
         this.validate();
     }//GEN-LAST:event_menuitDsCacLoaiSachActionPerformed
 
     private void menuitDsDiaPhimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuitDsDiaPhimActionPerformed
         // TODO add your handling code here:
-        this.setContentPane(new DsDiaPhim());
+        this.setContentPane(new PanelDsDiaPhim());
         this.invalidate();
         this.validate();
     }//GEN-LAST:event_menuitDsDiaPhimActionPerformed
@@ -354,8 +355,8 @@ public class HomeFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuitDsCacLoaiSach;
     private javax.swing.JMenuItem menuitDsDiaNhac;
     private javax.swing.JMenuItem menuitDsDiaPhim;
+    private javax.swing.JMenuItem menuitDsNvBanHang;
     private javax.swing.JMenuItem menuitDsNvThuNgan;
-    private javax.swing.JMenuItem menuitDsNvTiepThi;
     private javax.swing.JMenuItem menuitMauDonThanhToan;
     private javax.swing.JMenuItem menuitNhapKho;
     private javax.swing.JMenuItem menuitThemNhanVien;

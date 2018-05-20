@@ -8,17 +8,20 @@ package Main;
 import Database.AccountDB;
 import Database.DatabaseCreation;
 import Database.DatabaseConnection;
-import Others.TextReader;
+import Khac.TextReader;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -193,6 +196,7 @@ public class LoginFrame extends javax.swing.JFrame {
         } catch (ClassNotFoundException ex) {
             lbNotice.setText("ClassNotFoundException");
         } catch (SQLException ex) {//khi chưa tạo database
+            try {
             //lần đầu đăng nhập
             lbNotice.setText("Tạo mật khẩu cho chủ cửa hàng!");
             //lbNotice.setText(ex.getMessage());
@@ -200,23 +204,27 @@ public class LoginFrame extends javax.swing.JFrame {
             
             //tạo database
             DatabaseCreation create = new DatabaseCreation();
-            try {
-                create.createDatabase();
-                JOptionPane.showMessageDialog(this,"creating completed");
-                myConnectionClass = new DatabaseConnection();
-            } catch (ClassNotFoundException ex1) {
+            
+            create.createDatabase();
+            JOptionPane.showMessageDialog(this,"creating completed");
                 
-            } catch (SQLException ex1) {
-                System.out.print(ex.getMessage());
-            }
+            
             
             //Đọc file MediaOne.sql rồi ghi vào String query
             
-            try {
-                TextReader tr = new TextReader("MediaoneV3.sql");
-                for(String query:tr.getData()){
-                    myConnectionClass.executeQuery(query);
-                }
+            
+            myConnectionClass = new DatabaseConnection();
+            TextReader tr = new TextReader("MediaoneV3.sql");
+            for(String query:tr.getData()){
+                myConnectionClass.executeQuery(query);
+            }
+              
+            //ghi ra ngày bắt đầu bán
+            FileWriter fw = new FileWriter("theStart.txt");
+            PrintWriter pw = new PrintWriter(fw);
+            pw.println(new Date().getTime());
+            pw.close();
+                
             } catch (FileNotFoundException ex1) {
                 lbNotice.setText(ex1.getMessage());
             } catch (IOException ex1) {

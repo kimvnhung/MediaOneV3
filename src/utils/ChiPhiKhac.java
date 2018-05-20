@@ -9,7 +9,7 @@ package utils;
  *
  * @author h
  */
-public class ChiPhiKhac {
+public class ChiPhiKhac extends DoiTuong{
     private String tenChiPhi;
     private int soTien;
     private String trenDonVi;

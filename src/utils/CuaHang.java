@@ -5,7 +5,7 @@
  */
 package utils;
 
-import Others.DateLabelFormatter;
+import Khac.DateLabelFormatter;
 import Database.AccountDB;
 import Database.ChiPhiKhacDB;
 import Database.HoaDonDB;
@@ -16,6 +16,7 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 /**
  *
@@ -25,7 +26,7 @@ public class CuaHang {
     private final String tenCuaHang = "MediaOne";
     
     private String chuCuaHang;
-    private ArrayList<NhanVien> listNhanVienBanHang;
+    private ArrayList<NhanVienBanHang> listNhanVienBanHang;
     private ArrayList<NhanVienThuNgan> listNhanVienThuNgan;
     private ArrayList<DiaNhac> listDiaNhac;
     private ArrayList<DiaPhim> listDiaPhim;
@@ -47,7 +48,7 @@ public class CuaHang {
         if(nhanVienMoi.getLoaiNhanVien().equals("Nhân Viên Thu Ngân")){
             getListNhanVienThuNgan().add((NhanVienThuNgan) nhanVienMoi);
         }else{
-            getListNhanVienBanHang().add(nhanVienMoi);
+            getListNhanVienBanHang().add((NhanVienBanHang)nhanVienMoi);
         }
     }
     
@@ -60,13 +61,13 @@ public class CuaHang {
         switch(nv.getLoaiNhanVien()){
             case "Nhân Viên Thu Ngân":
                     this.listNhanVienThuNgan.remove(position);
-                    this.listNhanVienBanHang.add(position,nv);
+                    this.listNhanVienThuNgan.add(position, (NhanVienThuNgan) nv);
                     
                     nvdb.updateNhanVien((NhanVienThuNgan)nv);
                 break;
             default:
                 this.listNhanVienBanHang.remove(position);
-                this.listNhanVienBanHang.add(position,nv);
+                this.listNhanVienBanHang.add(position, (NhanVienBanHang) nv);
                 
                 nvdb.updateNhanVien(nv);
                 break;
@@ -161,60 +162,133 @@ public class CuaHang {
         }
     }
     
-    public ArrayList<SanPham> thongKeDoanhThu(long fromTime,long toTime) throws ParseException, CloneNotSupportedException{
-        ArrayList<HoaDon> hdInTime = new ArrayList<>();
+    public ArrayList<SanPham> getDanhSachSanPhamDaBan(long fromTime,long toTime) throws ParseException, CloneNotSupportedException, Exception{
+        if(fromTime > toTime){
+            throw new Exception("Thời gian không hợp lệ");
+        }else{
+            ArrayList<HoaDon> hdInTime = new ArrayList<>();
         
-        for(HoaDon x:listHoaDon){
-            hdInTime.add((HoaDon) x.clone());
-        }
-        
-        for(int i = 0; i < hdInTime.size(); i++){
-            String ngayBan = hdInTime.get(i).getNgayBan();
-            long toComp = new DateLabelFormatter(ngayBan).getMiliSeconds();
-            if(toComp < fromTime || toComp > toTime){
-                hdInTime.remove(i);
-                i--;
+            for(HoaDon x:listHoaDon){
+                hdInTime.add((HoaDon) x.clone());
             }
-        }
-        
-        ArrayList<SanPham> listSanPham = new ArrayList<>();
-        for(DiaNhac x: listDiaNhac){
-            listSanPham.add((DiaNhac) x.clone());
-        }
-        for(DiaPhim x: listDiaPhim){
-            listSanPham.add((DiaPhim) x.clone());
-        }
-        for(Sach x:listSach){
-            listSanPham.add((Sach) x.clone());
-        }
-        
-        for(int i = 0; i < listSanPham.size(); i++){
-            listSanPham.get(i).setSoLuong(0);
-            for(int j = 0; j < hdInTime.size(); j++){
-                ArrayList<SanPham> para = new ArrayList<>(hdInTime.get(j).getListSanPham());
-                for(int k = 0; k < para.size(); k++){
-                    SanPham sp = para.get(k);
-                    if(sp.getTen().equals(listSanPham.get(i).getTen())){
-                        listSanPham.get(i).setSoLuong(listSanPham.get(i).getSoLuong()+sp.getSoLuong());
+
+            for(int i = 0; i < hdInTime.size(); i++){
+                String ngayBan = hdInTime.get(i).getNgayBan();
+                long toComp = new DateLabelFormatter(ngayBan).getMiliSeconds();
+                if(toComp < fromTime || toComp > toTime){
+                    hdInTime.remove(i);
+                    i--;
+                }
+            }
+
+            ArrayList<SanPham> listSanPham = new ArrayList<>();
+            for(DiaNhac x: listDiaNhac){
+                listSanPham.add((DiaNhac) x.clone());
+            }
+            for(DiaPhim x: listDiaPhim){
+                listSanPham.add((DiaPhim) x.clone());
+            }
+            for(Sach x:listSach){
+                listSanPham.add((Sach) x.clone());
+            }
+
+            for(int i = 0; i < listSanPham.size(); i++){
+                listSanPham.get(i).setSoLuong(0);
+                for(int j = 0; j < hdInTime.size(); j++){
+                    ArrayList<SanPham> para = new ArrayList<>(hdInTime.get(j).getListSanPham());
+                    for(int k = 0; k < para.size(); k++){
+                        SanPham sp = para.get(k);
+                        if(sp.getTen().equals(listSanPham.get(i).getTen())){
+                            listSanPham.get(i).setSoLuong(listSanPham.get(i).getSoLuong()+sp.getSoLuong());
+                        }
                     }
                 }
             }
+
+            return listSanPham;
+        }
+    }
+    
+    public ArrayList<ChiPhiKhac> getDanhSachChiPhi(long fromTime,long toTime) throws CloneNotSupportedException, Exception{
+        if(fromTime > toTime){
+            throw new Exception("Thời gian không hợp lệ!");
+        }else{
+            ArrayList<ChiPhiKhac> listChiPhi = new ArrayList<>();
+        
+            for(ChiPhiKhac x: this.listChiPhiKhac){
+                listChiPhi.add((ChiPhiKhac) x.clone());
+            }
+
+
+            Date from = new Date(fromTime);
+            Date to = new Date(toTime);
+
+
+            int hour = (int) TimeUnit.HOURS.convert(toTime - fromTime, TimeUnit.MILLISECONDS);
+            int day = (int) TimeUnit.DAYS.convert(toTime - fromTime, TimeUnit.MILLISECONDS);
+            int month = (to.getYear() - from.getYear())*12+(to.getMonth() - from.getMonth());
+            int numYear = to.getYear() - from.getYear();
+
+            ChiPhiKhac tienLuong = new ChiPhiKhac("Tiền Lương Nhân Viên",0,"Tháng");
+            for(NhanVienBanHang x: listNhanVienBanHang){
+                tienLuong.setSoTien(tienLuong.getSoTien()+x.getLuong());
+            }
+            for(NhanVienThuNgan y: listNhanVienThuNgan){
+                tienLuong.setSoTien(tienLuong.getSoTien()+y.getLuong());
+            }
+
+            listChiPhi.add(tienLuong);
+
+            int soTien = 0;
+            for(ChiPhiKhac x:listChiPhi){
+
+                switch(x.getTrenDonVi()){
+                    case "None":
+                        soTien = x.getSoTien();
+                        break;
+                    case "Giờ":
+                        soTien = x.getSoTien()*hour;
+                        break;
+                    case "Ngày":
+                        soTien = x.getSoTien()*day;
+                        break;
+                    default:
+                        soTien = x.getSoTien()*month;
+                        break;
+                }
+
+                x.setSoTien(soTien);
+
+            }
+
+
+            return listChiPhi;
+        }
+    }
+    
+    public int thongKeDoanhThu(long fromTime,long toTime) throws ParseException, CloneNotSupportedException, Exception{
+        int result = 0;
+        ArrayList<SanPham> sanPhamDaBan = getDanhSachSanPhamDaBan(fromTime,toTime);
+        
+        for(SanPham x: sanPhamDaBan){
+            result += x.getSoLuong()*x.getGiaBan();
         }
         
-        return listSanPham;
+        return result;
     }
     
-    public ArrayList<ChiPhiKhac> thongKeChiPhi(long fromTime,long toTime){
-        ArrayList<ChiPhiKhac> listChiPhi = new ArrayList<>(this.listChiPhiKhac);
-        Date from = new Date(fromTime);
-        Date to = new Date(toTime);
-        int numYear = to.getYear() - from.getYear();
-        return listChiPhi;
-    }
-    
-    public int thongKeLoiNhuan(long fromTime,long toTime){
+    public int thongKeLoiNhuan(long fromTime,long toTime) throws ParseException, CloneNotSupportedException, Exception{
+        int doanhThu = thongKeDoanhThu(fromTime,toTime);
         
-        return 0;
+        int tongChiPhi = 0;
+        for(ChiPhiKhac x: getDanhSachChiPhi(fromTime,toTime)){
+            tongChiPhi += x.getSoTien();
+        }
+        
+        int loiNhuan = doanhThu - tongChiPhi;
+        
+        return loiNhuan;
+        
     }
     
     public boolean isAdmin(String username){
@@ -251,7 +325,7 @@ public class CuaHang {
         return chuCuaHang;
     }
 
-    public ArrayList<NhanVien> getListNhanVienBanHang() {
+    public ArrayList<NhanVienBanHang> getListNhanVienBanHang() {
         return listNhanVienBanHang;
     }
 
@@ -283,7 +357,7 @@ public class CuaHang {
         this.chuCuaHang = chuCuaHang;
     }
 
-    public void setListNhanVienBanHang(ArrayList<NhanVien> listNhanVienBanHang) {
+    public void setListNhanVienBanHang(ArrayList<NhanVienBanHang> listNhanVienBanHang) {
         this.listNhanVienBanHang = listNhanVienBanHang;
     }
 

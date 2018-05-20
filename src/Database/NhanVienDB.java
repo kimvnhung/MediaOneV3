@@ -12,6 +12,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import utils.Account;
 import utils.NhanVien;
+import utils.NhanVienBanHang;
 import utils.NhanVienThuNgan;
 
 /**
@@ -123,15 +124,15 @@ public class NhanVienDB {
     }
     
     //lấy danh sách nhân viên
-    public ArrayList<NhanVien> getListNhanVienBanHang() throws SQLException{
-        ArrayList<NhanVien> listNhanVienBanHang = new ArrayList<>();
+    public ArrayList<NhanVienBanHang> getListNhanVienBanHang() throws SQLException{
+        ArrayList<NhanVienBanHang> listNhanVienBanHang = new ArrayList<>();
         Statement st = connection.createStatement();
         String select = "SELECT * FROM "+TABLE_NHAN_VIEN +" WHERE " +COLUMN_NHAN_VIEN_1 +" NOT IN ("
                 + "SELECT "+COLUMN_ACC_1 +" FROM "+TABLE_ACC
                 + ")";
         ResultSet rs = st.executeQuery(select);
         while(rs.next()){
-            listNhanVienBanHang.add(new NhanVien(rs.getString(1),rs.getInt(2),rs.getInt(3)==1,rs.getString(4),rs.getString(5),
+            listNhanVienBanHang.add(new NhanVienBanHang(rs.getString(1),rs.getInt(2),rs.getInt(3)==1,rs.getString(4),rs.getString(5),
                     rs.getString(6),rs.getInt(7)
             ));
         }

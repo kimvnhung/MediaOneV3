@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <Properties>
+    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[800, 500]"/>
+    </Property>
+  </Properties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="lbNhapHang" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="357" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="PanelInfoNhapHang" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="PanelReferenceNhapHang" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="304" max="-2" attributes="0"/>
+              <Component id="btXoaNhapHang" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
+              <Component id="btLuuNhapHang" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="249" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="lbNhapHang" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="PanelReferenceNhapHang" max="32767" attributes="0"/>
+                  <Component id="PanelInfoNhapHang" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace pref="35" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btXoaNhapHang" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btLuuNhapHang" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="lbNhapHang">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nh&#x1ead;p h&#xe0;ng"/>
+      </Properties>
+    </Component>
+    <Container class="javax.swing.JPanel" name="PanelInfoNhapHang">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="lbMaMh" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbTenMatHangNhapHang" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbLoaiMatHangNhapHang" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbSoLuongNhapHang" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbGiaMuaNhapHang" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbGiaBanNhapHang" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="txtfMaMHNhapHang" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtfTenMatHangNhapHang" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtfSoLuongNhapHang" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtfGiaMuaNhapHang" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtfGiaBanNhapHang" alignment="0" pref="214" max="32767" attributes="0"/>
+                      </Group>
+                      <Component id="comBLoaiMHNhapHang" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="91" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lbMaMh" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtfMaMHNhapHang" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lbTenMatHangNhapHang" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtfTenMatHangNhapHang" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lbLoaiMatHangNhapHang" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="comBLoaiMHNhapHang" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lbSoLuongNhapHang" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtfSoLuongNhapHang" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lbGiaMuaNhapHang" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtfGiaMuaNhapHang" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lbGiaBanNhapHang" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtfGiaBanNhapHang" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="lbMaMh">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="M&#xe3; M&#x1eb7;t H&#xe0;ng"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lbTenMatHangNhapHang">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="T&#xea;n M&#x1eb7;t H&#xe0;ng"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lbLoaiMatHangNhapHang">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Lo&#x1ea1;i M&#x1eb7;t H&#xe0;ng"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lbSoLuongNhapHang">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="S&#x1ed1; L&#x1b0;&#x1ee3;ng"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lbGiaMuaNhapHang">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Gi&#xe1; Mua"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lbGiaBanNhapHang">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Gi&#xe1; B&#xe1;n"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtfMaMHNhapHang">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtfTenMatHangNhapHang">
+          <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtfTenMatHangNhapHangFocusGained"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtfSoLuongNhapHang">
+          <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtfSoLuongNhapHangFocusGained"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtfGiaMuaNhapHang">
+          <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtfGiaMuaNhapHangFocusGained"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtfGiaBanNhapHang">
+          <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtfGiaBanNhapHangFocusGained"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="comBLoaiMHNhapHang">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="3">
+                <StringItem index="0" value="&#x110;&#x129;a Nh&#x1ea1;c"/>
+                <StringItem index="1" value="&#x110;&#x129;a Phim"/>
+                <StringItem index="2" value="C&#xe1;c Lo&#x1ea1;i S&#xe1;ch"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comBLoaiMHNhapHangActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="PanelReferenceNhapHang">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="lbRef1NhapHang" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbRef2NhapHang" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbRef3NhapHang" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbTheLoaiNhapHang" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="txtfRef1NhapHang" max="32767" attributes="0"/>
+                      <Component id="txtfRef2NhapHang" max="32767" attributes="0"/>
+                      <Component id="txtfRef3NhapHang" pref="184" max="32767" attributes="0"/>
+                      <Component id="txtfTheLoaiNhapHang" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lbRef1NhapHang" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtfRef1NhapHang" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lbRef2NhapHang" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtfRef2NhapHang" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lbRef3NhapHang" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtfRef3NhapHang" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lbTheLoaiNhapHang" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtfTheLoaiNhapHang" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="lbRef1NhapHang">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Nh&#x1ea1;c s&#x129;"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lbRef2NhapHang">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ca s&#x129;"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lbRef3NhapHang">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Albumn"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtfRef1NhapHang">
+          <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtfRef1NhapHangFocusGained"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtfRef2NhapHang">
+          <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtfRef2NhapHangFocusGained"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtfRef3NhapHang">
+          <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtfRef3NhapHangFocusGained"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lbTheLoaiNhapHang">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Th&#x1ec3; Lo&#x1ea1;i"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtfTheLoaiNhapHang">
+          <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtfTheLoaiNhapHangFocusGained"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JButton" name="btXoaNhapHang">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="X&#xf3;a"/>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[85, 23]"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btXoaNhapHangActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btLuuNhapHang">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="L&#x1b0;u"/>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[85, 23]"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btLuuNhapHangActionPerformed"/>
+      </Events>
+    </Component>
+  </SubComponents>
+</Form>
