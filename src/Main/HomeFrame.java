@@ -28,14 +28,14 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import utils.Account;
-import utils.ChiPhiKhac;
-import utils.CuaHang;
-import utils.DiaNhac;
-import utils.DiaPhim;
-import utils.NhanVien;
-import utils.NhanVienThuNgan;
-import utils.Sach;
+import DoiTuongChinh.Account;
+import DoiTuongChinh.ChiPhiKhac;
+import DoiTuongChinh.CuaHang;
+import DoiTuongChinh.DiaNhac;
+import DoiTuongChinh.DiaPhim;
+import DoiTuongChinh.NhanVien;
+import DoiTuongChinh.NhanVienThuNgan;
+import DoiTuongChinh.Sach;
 
 /**
  *
@@ -71,10 +71,12 @@ public class HomeFrame extends javax.swing.JFrame {
             menuitThemNhanVien.setEnabled(true);
             menuitDsNvThuNgan.setEnabled(true);
             menuitDsNvBanHang.setEnabled(true);
+            menuDoanhThu.setEnabled(true);
         }else{
             menuitThemNhanVien.setEnabled(false);
             menuitDsNvThuNgan.setEnabled(false);
             menuitDsNvBanHang.setEnabled(false);
+            menuDoanhThu.setEnabled(false);
         }
     }
     

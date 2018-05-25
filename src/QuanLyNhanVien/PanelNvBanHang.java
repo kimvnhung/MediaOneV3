@@ -16,8 +16,8 @@ import javax.swing.JOptionPane;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
-import utils.NhanVien;
-import utils.NhanVienBanHang;
+import DoiTuongChinh.NhanVien;
+import DoiTuongChinh.NhanVienBanHang;
 
 /**
  *
@@ -51,7 +51,7 @@ public class PanelNvBanHang extends PanelNhanVienTable{
                         (String)model.getValueAt(stt, 1),(int)model.getValueAt(stt, 2), model.getValueAt(stt, 3).equals("Nam")?true:false,
                         (String)model.getValueAt(stt, 4),(String)model.getValueAt(stt, 5),loaiNhanVien,(int) model.getValueAt(stt, 6)
                 );
-                HomeFrame.cuaHang.capNhatttNv(rowItem,stt);
+                HomeFrame.cuaHang.capNhatttNv((NhanVien)rowItem,stt);
             }
             
             

@@ -25,8 +25,8 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import utils.Account;
-import utils.CuaHang;
+import DoiTuongChinh.Account;
+import DoiTuongChinh.CuaHang;
 
 /**
  *

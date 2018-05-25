@@ -52,7 +52,7 @@
                   <Component id="PanelReferenceNhapHang" max="32767" attributes="0"/>
                   <Component id="PanelInfoNhapHang" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="35" max="32767" attributes="0"/>
+              <EmptySpace pref="68" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btXoaNhapHang" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btLuuNhapHang" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -76,7 +76,6 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lbMaMh" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="lbTenMatHangNhapHang" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="lbLoaiMatHangNhapHang" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="lbSoLuongNhapHang" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -86,7 +85,6 @@
                   <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="txtfMaMHNhapHang" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtfTenMatHangNhapHang" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtfSoLuongNhapHang" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtfGiaMuaNhapHang" alignment="0" max="32767" attributes="0"/>
@@ -101,12 +99,7 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lbMaMh" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtfMaMHNhapHang" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lbTenMatHangNhapHang" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtfTenMatHangNhapHang" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -137,11 +130,6 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="lbMaMh">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="M&#xe3; M&#x1eb7;t H&#xe0;ng"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JLabel" name="lbTenMatHangNhapHang">
           <Properties>
             <Property name="text" type="java.lang.String" value="T&#xea;n M&#x1eb7;t H&#xe0;ng"/>
@@ -165,11 +153,6 @@
         <Component class="javax.swing.JLabel" name="lbGiaBanNhapHang">
           <Properties>
             <Property name="text" type="java.lang.String" value="Gi&#xe1; B&#xe1;n"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtfMaMHNhapHang">
-          <Properties>
-            <Property name="editable" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtfTenMatHangNhapHang">

@@ -18,9 +18,9 @@ import java.util.concurrent.TimeUnit;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-import utils.ChiPhiKhac;
+import DoiTuongChinh.ChiPhiKhac;
 import Khac.DateLabelFormatter;
-import utils.SanPham;
+import DoiTuongChinh.SanPham;
 
 /**
  *

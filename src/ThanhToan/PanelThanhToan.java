@@ -23,11 +23,11 @@ import javax.swing.ListSelectionModel;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
-import utils.DiaNhac;
-import utils.DiaPhim;
-import utils.HoaDon;
-import utils.Sach;
-import utils.SanPham;
+import DoiTuongChinh.DiaNhac;
+import DoiTuongChinh.DiaPhim;
+import DoiTuongChinh.HoaDon;
+import DoiTuongChinh.Sach;
+import DoiTuongChinh.SanPham;
 
 /**
  *
@@ -522,9 +522,9 @@ public class PanelThanhToan extends javax.swing.JPanel {
                 HoaDon hdMoi = new HoaDon(maHd,tenNguoiBan,ngayBan,tenKH,sdt,listSanPham);
                 
                 hdMoi.getKhachHang().thanhToan(hdMoi);
-                JOptionPane.showMessageDialog(this,
-                "Tổng số tiền phải trả là "+lbShowTongSoTien.getText()+" VND\nCảm ơn quý khách đã sử dụng sản phẩm của chúng tôi",
-                "MediaOne Notice!",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Tổng số tiền quý khách phải trả là: "+lbShowTongSoTien.getText()+
+                        "\nCảm ơn quý khách đã sử dụng dịch vụ của chúng tôi!",
+                        "Cửa Hàng MediaOne",JOptionPane.INFORMATION_MESSAGE);
                 
                 btReset.doClick();
                 setMaHoaDon();
@@ -535,6 +535,8 @@ public class PanelThanhToan extends javax.swing.JPanel {
 
         } catch (SQLException ex) {
 
+        } catch (Exception ex){
+            System.out.println(ex.getMessage());
         }
 
     }//GEN-LAST:event_btThanhToanActionPerformed

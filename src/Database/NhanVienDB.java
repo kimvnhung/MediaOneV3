@@ -10,10 +10,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import utils.Account;
-import utils.NhanVien;
-import utils.NhanVienBanHang;
-import utils.NhanVienThuNgan;
+import DoiTuongChinh.Account;
+import DoiTuongChinh.NhanVien;
+import DoiTuongChinh.NhanVienBanHang;
+import DoiTuongChinh.NhanVienThuNgan;
 
 /**
  *
@@ -59,17 +59,19 @@ public class NhanVienDB {
 
     
     public void deleteNhanVien(NhanVien nv) throws SQLException, ClassNotFoundException{
-        Statement st = connection.createStatement();
-        String delete = "DELETE FROM "+TABLE_NHAN_VIEN +" WHERE "
-                + COLUMN_NHAN_VIEN_1 + " = "+nv.getTen();
-        int result = st.executeUpdate(delete);
-        
-        
         if(nv instanceof NhanVienThuNgan){
             AccountDB tbAcc = new AccountDB();
             
             tbAcc.deleteAccount(((NhanVienThuNgan) nv).getTen());
         }
+        
+        Statement st = connection.createStatement();
+        String delete = "DELETE FROM "+TABLE_NHAN_VIEN +" WHERE "
+                + COLUMN_NHAN_VIEN_1 + " = \""+nv.getTen()+"\"";
+        st.execute(delete);
+        
+        
+        
     }
 
     public void updateNhanVien(NhanVien nv) throws SQLException, ClassNotFoundException{
@@ -81,7 +83,7 @@ public class NhanVienDB {
                 + COLUMN_NHAN_VIEN_5 + " = \""+nv.getSDT()+"\", "
                 + COLUMN_NHAN_VIEN_6 + " = \""+nv.getLoaiNhanVien()+"\", "
                 + COLUMN_NHAN_VIEN_7 + " = "+nv.getLuong()+" WHERE "
-                + COLUMN_NHAN_VIEN_1 + " = "+nv.getTen();
+                + COLUMN_NHAN_VIEN_1 + " = \""+nv.getTen()+"\"";
         int result = st.executeUpdate(update);
         
         if(nv instanceof NhanVienThuNgan ){

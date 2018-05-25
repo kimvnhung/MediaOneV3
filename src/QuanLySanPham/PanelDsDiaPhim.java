@@ -17,8 +17,8 @@ import javax.swing.JOptionPane;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
-import utils.DiaPhim;
-import utils.SanPham;
+import DoiTuongChinh.DiaPhim;
+import DoiTuongChinh.SanPham;
 
 /**
  *
@@ -45,15 +45,15 @@ public class PanelDsDiaPhim extends PanelDsSanPham{
         for(int i = 0; i <  rowRange; i++){
             int stt = updateList.get(i);
             
-            String ten = (String)getModel().getValueAt(i, 2);
-            String loaiMH = (String)getModel().getValueAt(i, 3);
-            String ref1 = (String)getModel().getValueAt(i, 4);
-            String ref2 = (String)getModel().getValueAt(i, 5);
-            String ref3 = (String)getModel().getValueAt(i, 6);
-            String theLoai = (String)getModel().getValueAt(i, 7);
-            int soLuong = (int)getModel().getValueAt(i, 8);
-            int giaMua = (int)getModel().getValueAt(i, 9);
-            int giaBan = (int)getModel().getValueAt(i, 10);
+            String ten = (String)getModel().getValueAt(stt, 1);
+            String loaiMH = (String)getModel().getValueAt(stt, 2);
+            String ref1 = (String)getModel().getValueAt(stt, 3);
+            String ref2 = (String)getModel().getValueAt(stt, 4);
+            String ref3 = (String)getModel().getValueAt(stt, 5);
+            String theLoai = (String)getModel().getValueAt(stt, 6);
+            int soLuong = (int)getModel().getValueAt(stt, 7);
+            int giaMua = (int)getModel().getValueAt(stt, 8);
+            int giaBan = (int)getModel().getValueAt(stt, 9);
             DiaPhim rowItem = new DiaPhim(
                     ten,loaiMH,ref1,ref2,ref3,theLoai,soLuong,giaMua,giaBan
             );
@@ -75,8 +75,7 @@ public class PanelDsDiaPhim extends PanelDsSanPham{
         int position = getTbDsSP().getSelectedRow();
         
         try {
-            HomeFrame.cuaHang.loaiBoMatHang(HomeFrame.cuaHang.getListDiaPhim().get(position));
-            HomeFrame.cuaHang.getListDiaPhim().remove(position);
+            HomeFrame.cuaHang.loaiBoMatHang(HomeFrame.cuaHang.getListDiaPhim().get(position),position);
             JOptionPane.showMessageDialog(this, "Xóa thành công!");
             setTableContent();
         } catch (ClassNotFoundException ex) {

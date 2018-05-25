@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import utils.Account;
+import DoiTuongChinh.Account;
 
 /**
  *
@@ -54,16 +54,16 @@ public class AccountDB {
     public void deleteAccount(String tenNv) throws SQLException{
         Statement st = connection.createStatement();
         String delete = "DELETE FROM "+TABLE_ACC +" WHERE "
-                + COLUMN_ACC_1 + " = "+tenNv;
-        int result = st.executeUpdate(delete);
+                + COLUMN_ACC_1 + " = \""+tenNv+"\"";
+        st.execute(delete);
     }
     
     public void updateAccount(Account acc,String tenNv) throws SQLException{
         Statement st = connection.createStatement();
         String update = "UPDATE "+TABLE_ACC +" SET "
-                +COLUMN_ACC_2 + " = \""+acc.getUsername()+"\", \""
+                +COLUMN_ACC_2 + " = \""+acc.getUsername()+"\", "
                 + COLUMN_ACC_3 + " = \""+acc.getPassword()+"\" WHERE "
-                + COLUMN_ACC_1 + " = "+tenNv;
+                + COLUMN_ACC_1 + " = \""+tenNv+"\"";
         int result = st.executeUpdate(update);
     }
     

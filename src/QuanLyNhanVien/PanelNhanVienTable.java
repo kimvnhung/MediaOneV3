@@ -19,7 +19,10 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
-import utils.NhanVien;
+import DoiTuongChinh.NhanVien;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 /**
  *
@@ -38,19 +41,7 @@ public abstract class PanelNhanVienTable extends javax.swing.JPanel {
         setListRowBeChanged(new ArrayList<Integer>());
         
         
-        getTbDsNv().getSelectionModel().addListSelectionListener(
-                new ListSelectionListener() {
-            @Override
-            public void valueChanged(ListSelectionEvent lse) {
-                if(getTbDsNv().isEditing()){
-                    int check = getListRowBeChanged().indexOf(lse.getFirstIndex());
-                    if(check == -1){
-                        getListRowBeChanged().add(lse.getFirstIndex());
-                    }
-                }
-            }
-        }
-        );
+        
         
         getBtLuuNv().addActionListener(
                 new ActionListener() {
@@ -107,6 +98,11 @@ public abstract class PanelNhanVienTable extends javax.swing.JPanel {
                 "STT", "Tên nhân viên", "Tuổi", "Giới tính", "Địa chỉ", "SĐT", "Lương(VND/Tháng)"
             }
         ));
+        tbDsNv.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tbDsNvFocusLost(evt);
+            }
+        });
         ScrPDsNv.setViewportView(tbDsNv);
 
         lbTitleDsNv.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -151,9 +147,19 @@ public abstract class PanelNhanVienTable extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btLuuNv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btXoaNv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void tbDsNvFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tbDsNvFocusLost
+        // TODO add your handling code here:
+        if(getTbDsNv().isEditing()){
+            int check = getListRowBeChanged().indexOf(getTbDsNv().getSelectedRow());
+            if(check == -1){
+                getListRowBeChanged().add(getTbDsNv().getSelectedRow());
+            }
+        }
+    }//GEN-LAST:event_tbDsNvFocusLost
     
     public JTable getTbDsNv() {
         return tbDsNv;

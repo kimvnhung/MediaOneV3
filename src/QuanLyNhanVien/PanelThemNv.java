@@ -14,9 +14,10 @@ import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SpringLayout;
-import utils.Account;
-import utils.NhanVien;
-import utils.NhanVienThuNgan;
+import DoiTuongChinh.Account;
+import DoiTuongChinh.NhanVien;
+import DoiTuongChinh.NhanVienBanHang;
+import DoiTuongChinh.NhanVienThuNgan;
 
 /**
  *
@@ -240,7 +241,7 @@ public class PanelThemNv extends javax.swing.JPanel {
                         .addComponent(cbNuThemNv)
                         .addContainerGap())))
             .addGroup(PanelLv2Layout.createSequentialGroup()
-                .addGap(337, 337, 337)
+                .addGap(334, 334, 334)
                 .addComponent(btThem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -282,9 +283,9 @@ public class PanelThemNv extends javax.swing.JPanel {
                     .addGroup(PanelLv2Layout.createSequentialGroup()
                         .addGap(5, 5, 5)
                         .addComponent(paneParentUserPassThemNv, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btThem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(146, Short.MAX_VALUE))
+                .addContainerGap(158, Short.MAX_VALUE))
         );
 
         add(PanelLv2);
@@ -314,7 +315,7 @@ public class PanelThemNv extends javax.swing.JPanel {
             String SDT = txtfSDTThemNv.getText();
             String loaiNhanVien = comBLoaiNhanVienThemNv.getSelectedItem().toString();
             int luong = Integer.parseInt(txtfLuongThemNv.getText());
-            NhanVien nhanVienMoi = new NhanVien(ten,tuoi,gioiTinh,diaChi,SDT,loaiNhanVien,luong);
+            NhanVien nhanVienMoi;
             String username = "";
             if(comBLoaiNhanVienThemNv.getSelectedIndex() == 0){
                 username = txtfUsernameThemNv.getText();
@@ -322,6 +323,8 @@ public class PanelThemNv extends javax.swing.JPanel {
                 
                 NhanVienThuNgan nhanVienThuNganMoi = new NhanVienThuNgan(ten,tuoi,gioiTinh,diaChi,SDT,loaiNhanVien,luong,username,pass);
                 nhanVienMoi = nhanVienThuNganMoi;
+            }else{
+                nhanVienMoi = new NhanVienBanHang(ten,tuoi,gioiTinh,diaChi,SDT,loaiNhanVien,luong);
             }
             
             if(!isTxtfEmpty(ten,tuoi,SDT,luong) && 

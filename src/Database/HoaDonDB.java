@@ -10,8 +10,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import utils.HoaDon;
-import utils.SanPham;
+import DoiTuongChinh.HoaDon;
+import DoiTuongChinh.SanPham;
 
 /**
  *
@@ -68,7 +68,7 @@ public class HoaDonDB {
         Statement st = connection.createStatement();
         String delete = "DELETE FROM "+TABLE_HOA_DON +" WHERE "
                 + COLUMN_HOA_DON_1 + " = \""+hd.getMaHoaDon()+"\"";
-        int result = st.executeUpdate(delete);
+        st.execute(delete);
     }
     
     public void updateHoaDon(HoaDon hd) throws SQLException{
@@ -84,7 +84,8 @@ public class HoaDonDB {
             update = "UPDATE "+TABLE_CT_HD + " SET "
                     + COLUMN_CT_HD_3 + " = "+x.getSoLuong() +" WHERE "
                     + COLUMN_CT_HD_1 +" = "+hd.getMaHoaDon()+" AND "
-                    + COLUMN_CT_HD_2 +" = "+x.getTen();
+                    + COLUMN_CT_HD_2 +" = \""+x.getTen()+"\"";
+            result = st.executeUpdate(update);
         }
     }
     

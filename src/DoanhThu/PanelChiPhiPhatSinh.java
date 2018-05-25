@@ -16,7 +16,7 @@ import javax.swing.JTextField;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
-import utils.ChiPhiKhac;
+import DoiTuongChinh.ChiPhiKhac;
 
 /**
  *
@@ -41,21 +41,6 @@ public class PanelChiPhiPhatSinh extends javax.swing.JPanel {
         
         listChiPhi = new ArrayList<>(HomeFrame.cuaHang.getListChiPhiKhac());
         setTableContent();
-        
-        this.tableChiPhiPhatSinh.getSelectionModel().addListSelectionListener(
-                new ListSelectionListener() {
-            @Override
-            public void valueChanged(ListSelectionEvent lse) {
-                if(tableChiPhiPhatSinh.isEditing()){
-                    int check = getListRowBeChanged().indexOf(lse.getFirstIndex());
-                    if(check == -1){
-                        getListRowBeChanged().add(lse.getFirstIndex());
-                        
-                    }
-                }
-            }
-        }
-        );
         
         
         
@@ -215,6 +200,9 @@ public class PanelChiPhiPhatSinh extends javax.swing.JPanel {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 tableChiPhiPhatSinhFocusGained(evt);
             }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tableChiPhiPhatSinhFocusLost(evt);
+            }
         });
         jScrollPane1.setViewportView(tableChiPhiPhatSinh);
 
@@ -332,12 +320,13 @@ public class PanelChiPhiPhatSinh extends javax.swing.JPanel {
             DefaultTableModel model = (DefaultTableModel) this.tableChiPhiPhatSinh.getModel();
             int rowRange = updateList.size();
             for(int i = 0; i <  rowRange; i++){
-                String name = (String) model.getValueAt(i, 1);
-                int soTien = (int) model.getValueAt(i, 2);
-                String trenDonVi = (String) model.getValueAt(i, 3);
+                int pos = updateList.get(i);
+                String name = (String) model.getValueAt(pos, 1);
+                int soTien = (int) model.getValueAt(pos, 2);
+                String trenDonVi = (String) model.getValueAt(pos, 3);
                 ChiPhiKhac rowItem = new ChiPhiKhac(name,soTien,trenDonVi);
                 
-                int pos = updateList.get(i);
+                
                 
                 HomeFrame.cuaHang.getListChiPhiKhac().remove(pos);
                 HomeFrame.cuaHang.getListChiPhiKhac().add(pos, rowItem);
@@ -355,8 +344,19 @@ public class PanelChiPhiPhatSinh extends javax.swing.JPanel {
 
     private void tableChiPhiPhatSinhFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tableChiPhiPhatSinhFocusGained
         // TODO add your handling code here:
-        btLuu.setEnabled(true);
+        
     }//GEN-LAST:event_tableChiPhiPhatSinhFocusGained
+
+    private void tableChiPhiPhatSinhFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tableChiPhiPhatSinhFocusLost
+        // TODO add your handling code here:
+        if(this.tableChiPhiPhatSinh.isEditing()){
+            int check = getListRowBeChanged().indexOf(this.tableChiPhiPhatSinh.getSelectedRow());
+            if(check == -1){
+                getListRowBeChanged().add(this.tableChiPhiPhatSinh.getSelectedRow());
+            }
+        }
+        btLuu.setEnabled(true);
+    }//GEN-LAST:event_tableChiPhiPhatSinhFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

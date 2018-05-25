@@ -12,8 +12,8 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
-import utils.DiaPhim;
-import utils.Sach;
+import DoiTuongChinh.DiaPhim;
+import DoiTuongChinh.Sach;
 
 /**
  *
@@ -38,15 +38,15 @@ public class PanelDsCacLoaiSach extends PanelDsSanPham{
         for(int i = 0; i <  rowRange; i++){
             int stt = updateList.get(i);
             
-            String ten = (String)getModel().getValueAt(i, 2);
-            String loaiMH = (String)getModel().getValueAt(i, 3);
-            String ref1 = (String)getModel().getValueAt(i, 4);
-            String ref2 = (String)getModel().getValueAt(i, 5);
-            String ref3 = (String)getModel().getValueAt(i, 6);
-            String theLoai = (String)getModel().getValueAt(i, 7);
-            int soLuong = (int)getModel().getValueAt(i, 8);
-            int giaMua = (int)getModel().getValueAt(i, 9);
-            int giaBan = (int)getModel().getValueAt(i, 10);
+            String ten = (String)getModel().getValueAt(stt, 1);
+            String loaiMH = (String)getModel().getValueAt(stt, 2);
+            String ref1 = (String)getModel().getValueAt(stt, 3);
+            String ref2 = (String)getModel().getValueAt(stt, 4);
+            String ref3 = (String)getModel().getValueAt(stt, 5);
+            String theLoai = (String)getModel().getValueAt(stt, 6);
+            int soLuong = (int)getModel().getValueAt(stt, 7);
+            int giaMua = (int)getModel().getValueAt(stt, 8);
+            int giaBan = (int)getModel().getValueAt(stt, 9);
             Sach rowItem = new Sach(
                     ten,loaiMH,ref1,ref2,ref3,theLoai,soLuong,giaMua,giaBan
             );
@@ -68,7 +68,7 @@ public class PanelDsCacLoaiSach extends PanelDsSanPham{
         int position = getTbDsSP().getSelectedRow();
         
         try {
-            HomeFrame.cuaHang.loaiBoMatHang(HomeFrame.cuaHang.getListSach().get(position));
+            HomeFrame.cuaHang.loaiBoMatHang(HomeFrame.cuaHang.getListSach().get(position),position);
             HomeFrame.cuaHang.getListSach().remove(position);
             JOptionPane.showMessageDialog(this, "Xóa thành công!");
             setTableContent();

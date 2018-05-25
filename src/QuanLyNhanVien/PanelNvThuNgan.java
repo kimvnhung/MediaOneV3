@@ -13,8 +13,8 @@ import javax.swing.JOptionPane;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
-import utils.NhanVien;
-import utils.NhanVienThuNgan;
+import DoiTuongChinh.NhanVien;
+import DoiTuongChinh.NhanVienThuNgan;
 
 /**
  *

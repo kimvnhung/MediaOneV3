@@ -10,9 +10,9 @@ import java.awt.Color;
 import java.text.ParseException;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import utils.DiaNhac;
-import utils.DiaPhim;
-import utils.Sach;
+import DoiTuongChinh.DiaNhac;
+import DoiTuongChinh.DiaPhim;
+import DoiTuongChinh.Sach;
 
 /**
  *
@@ -27,7 +27,7 @@ public class PanelNhapHang extends javax.swing.JPanel {
     public PanelNhapHang() {
         initComponents();
         
-        setMaMatHang();
+        
     }
 
     /**
@@ -41,13 +41,11 @@ public class PanelNhapHang extends javax.swing.JPanel {
 
         lbNhapHang = new javax.swing.JLabel();
         PanelInfoNhapHang = new javax.swing.JPanel();
-        lbMaMh = new javax.swing.JLabel();
         lbTenMatHangNhapHang = new javax.swing.JLabel();
         lbLoaiMatHangNhapHang = new javax.swing.JLabel();
         lbSoLuongNhapHang = new javax.swing.JLabel();
         lbGiaMuaNhapHang = new javax.swing.JLabel();
         lbGiaBanNhapHang = new javax.swing.JLabel();
-        txtfMaMHNhapHang = new javax.swing.JTextField();
         txtfTenMatHangNhapHang = new javax.swing.JTextField();
         txtfSoLuongNhapHang = new javax.swing.JTextField();
         txtfGiaMuaNhapHang = new javax.swing.JTextField();
@@ -69,8 +67,6 @@ public class PanelNhapHang extends javax.swing.JPanel {
 
         lbNhapHang.setText("Nhập hàng");
 
-        lbMaMh.setText("Mã Mặt Hàng");
-
         lbTenMatHangNhapHang.setText("Tên Mặt Hàng");
 
         lbLoaiMatHangNhapHang.setText("Loại Mặt Hàng");
@@ -80,8 +76,6 @@ public class PanelNhapHang extends javax.swing.JPanel {
         lbGiaMuaNhapHang.setText("Giá Mua");
 
         lbGiaBanNhapHang.setText("Giá Bán");
-
-        txtfMaMHNhapHang.setEditable(false);
 
         txtfTenMatHangNhapHang.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -121,7 +115,6 @@ public class PanelNhapHang extends javax.swing.JPanel {
             .addGroup(PanelInfoNhapHangLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(PanelInfoNhapHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbMaMh)
                     .addComponent(lbTenMatHangNhapHang)
                     .addComponent(lbLoaiMatHangNhapHang)
                     .addComponent(lbSoLuongNhapHang)
@@ -130,7 +123,6 @@ public class PanelNhapHang extends javax.swing.JPanel {
                 .addGap(120, 120, 120)
                 .addGroup(PanelInfoNhapHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelInfoNhapHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txtfMaMHNhapHang)
                         .addComponent(txtfTenMatHangNhapHang)
                         .addComponent(txtfSoLuongNhapHang)
                         .addComponent(txtfGiaMuaNhapHang)
@@ -141,11 +133,7 @@ public class PanelNhapHang extends javax.swing.JPanel {
         PanelInfoNhapHangLayout.setVerticalGroup(
             PanelInfoNhapHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelInfoNhapHangLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addGroup(PanelInfoNhapHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbMaMh)
-                    .addComponent(txtfMaMHNhapHang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
+                .addGap(30, 30, 30)
                 .addGroup(PanelInfoNhapHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbTenMatHangNhapHang)
                     .addComponent(txtfTenMatHangNhapHang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -287,7 +275,7 @@ public class PanelNhapHang extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(PanelReferenceNhapHang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(PanelInfoNhapHang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btXoaNhapHang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btLuuNhapHang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -334,7 +322,7 @@ public class PanelNhapHang extends javax.swing.JPanel {
     private void btLuuNhapHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLuuNhapHangActionPerformed
         // TODO add your handling code here:
         try{
-            String maMH = txtfMaMHNhapHang.getText().toString();
+            
             String ten = txtfTenMatHangNhapHang.getText().toString();
             String loaiSP = comBLoaiMHNhapHang.getSelectedItem().toString();
             int soLuong = Integer.parseInt(txtfSoLuongNhapHang.getText().toString());
@@ -364,7 +352,6 @@ public class PanelNhapHang extends javax.swing.JPanel {
                         break;
                 }
                 JOptionPane.showMessageDialog(this, "Thêm thành công!");
-                setMaMatHang();
                 
             }
         }catch (Exception e){
@@ -440,7 +427,6 @@ public class PanelNhapHang extends javax.swing.JPanel {
     private javax.swing.JLabel lbGiaBanNhapHang;
     private javax.swing.JLabel lbGiaMuaNhapHang;
     private javax.swing.JLabel lbLoaiMatHangNhapHang;
-    private javax.swing.JLabel lbMaMh;
     private javax.swing.JLabel lbNhapHang;
     private javax.swing.JLabel lbRef1NhapHang;
     private javax.swing.JLabel lbRef2NhapHang;
@@ -450,7 +436,6 @@ public class PanelNhapHang extends javax.swing.JPanel {
     private javax.swing.JLabel lbTheLoaiNhapHang;
     private javax.swing.JTextField txtfGiaBanNhapHang;
     private javax.swing.JTextField txtfGiaMuaNhapHang;
-    private javax.swing.JTextField txtfMaMHNhapHang;
     private javax.swing.JTextField txtfRef1NhapHang;
     private javax.swing.JTextField txtfRef2NhapHang;
     private javax.swing.JTextField txtfRef3NhapHang;
@@ -510,16 +495,7 @@ public class PanelNhapHang extends javax.swing.JPanel {
             smt.setText("");
             smt.setForeground(Color.black);
         }
-    }
-
-    private void setMaMatHang() {
-        int slDiaNhac = HomeFrame.cuaHang.getListDiaNhac().size();
-        int slDiaPhim = HomeFrame.cuaHang.getListDiaPhim().size();
-        int slSach = HomeFrame.cuaHang.getListSach().size();
-        ma_mh = slDiaNhac + slDiaPhim+slSach+1;
-        txtfMaMHNhapHang.setText("SP"+ma_mh);
-    }
-    
+    }  
     
 
 }

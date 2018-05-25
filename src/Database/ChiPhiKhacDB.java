@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import utils.ChiPhiKhac;
+import DoiTuongChinh.ChiPhiKhac;
 
 /**
  *
@@ -44,7 +44,7 @@ public class ChiPhiKhacDB {
         Statement st = connection.createStatement();
         String delete = "DELETE FROM "+TABLE_CPPS +" WHERE "
                 + COLUMN_CPPS_1 + " = \""+cp.getTenChiPhi()+"\"";
-        int result = st.executeUpdate(delete);
+        st.execute(delete);
     }
     
     public void updateChiPhi(ChiPhiKhac cp) throws SQLException{

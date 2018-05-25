@@ -13,15 +13,15 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import utils.Account;
-import utils.ChiPhiKhac;
-import utils.DiaNhac;
-import utils.DiaPhim;
-import utils.HoaDon;
-import utils.NhanVien;
-import utils.NhanVienThuNgan;
-import utils.Sach;
-import utils.SanPham;
+import DoiTuongChinh.Account;
+import DoiTuongChinh.ChiPhiKhac;
+import DoiTuongChinh.DiaNhac;
+import DoiTuongChinh.DiaPhim;
+import DoiTuongChinh.HoaDon;
+import DoiTuongChinh.NhanVien;
+import DoiTuongChinh.NhanVienThuNgan;
+import DoiTuongChinh.Sach;
+import DoiTuongChinh.SanPham;
 
 /**
  *

@@ -47,28 +47,14 @@ public abstract class PanelDsSanPham extends javax.swing.JPanel {
         };
         getTbDsSP().setModel(tm);
         getScrPaneTable().setViewportView(getTbDsSP());
-        getLbDanhSachCacSanPham().setText(getTitlePanel());
+        getLbDsCacSanPham().setText(getTitlePanel());
         
         model = (DefaultTableModel) getTbDsSP().getModel();
         
         setTableContent();
         setListRowBeChanged(new ArrayList<Integer>());
         
-        getTbDsSP().getSelectionModel().addListSelectionListener(
-                new ListSelectionListener() {
-            @Override
-            public void valueChanged(ListSelectionEvent lse) {
-                if(getTbDsSP().isEditing()){
-                    int check = getListRowBeChanged().indexOf(lse.getFirstIndex());
-                    if(check == -1){
-                        getListRowBeChanged().add(lse.getFirstIndex());
-                    }
-                }
-            }
-
-            
-        }
-        );
+        
         
         
         
@@ -123,8 +109,8 @@ public abstract class PanelDsSanPham extends javax.swing.JPanel {
         return ScrPaneTable;
     }
 
-    public JLabel getLbDanhSachCacSanPham() {
-        return lbDanhSachCacSanPham;
+    public JLabel getLbDsCacSanPham() {
+        return lbDsCacSanPham;
     }
 
     
@@ -138,7 +124,7 @@ public abstract class PanelDsSanPham extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lbDanhSachCacSanPham = new javax.swing.JLabel();
+        lbDsCacSanPham = new javax.swing.JLabel();
         ScrPaneTable = new javax.swing.JScrollPane();
         tableDsSanPham = new javax.swing.JTable();
         btLuuDsCacSp = new javax.swing.JButton();
@@ -146,7 +132,7 @@ public abstract class PanelDsSanPham extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(800, 500));
 
-        lbDanhSachCacSanPham.setText("Danh Sách Các Sản Phẩm");
+        lbDsCacSanPham.setText("Danh Sách Các Sản Phẩm");
 
         tableDsSanPham.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -167,9 +153,9 @@ public abstract class PanelDsSanPham extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        tableDsSanPham.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tableDsSanPhamMouseClicked(evt);
+        tableDsSanPham.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tableDsSanPhamFocusLost(evt);
             }
         });
         ScrPaneTable.setViewportView(tableDsSanPham);
@@ -186,7 +172,7 @@ public abstract class PanelDsSanPham extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lbDanhSachCacSanPham)
+                .addComponent(lbDsCacSanPham)
                 .addGap(363, 363, 363))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -203,7 +189,7 @@ public abstract class PanelDsSanPham extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lbDanhSachCacSanPham)
+                .addComponent(lbDsCacSanPham)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addComponent(ScrPaneTable, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -214,10 +200,15 @@ public abstract class PanelDsSanPham extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tableDsSanPhamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableDsSanPhamMouseClicked
+    private void tableDsSanPhamFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tableDsSanPhamFocusLost
         // TODO add your handling code here:
-        
-    }//GEN-LAST:event_tableDsSanPhamMouseClicked
+        if(getTbDsSP().isEditing()){
+            int check = getListRowBeChanged().indexOf(getTbDsSP().getSelectedRow());
+            if(check == -1){
+                getListRowBeChanged().add(getTbDsSP().getSelectedRow());
+            }
+        }
+    }//GEN-LAST:event_tableDsSanPhamFocusLost
 
 
     public JTable getTbDsSP() {
@@ -248,7 +239,7 @@ public abstract class PanelDsSanPham extends javax.swing.JPanel {
     private javax.swing.JScrollPane ScrPaneTable;
     private javax.swing.JButton btLuuDsCacSp;
     private javax.swing.JButton btXoaDsCacSp;
-    private javax.swing.JLabel lbDanhSachCacSanPham;
+    private javax.swing.JLabel lbDsCacSanPham;
     private javax.swing.JTable tableDsSanPham;
     // End of variables declaration//GEN-END:variables
 

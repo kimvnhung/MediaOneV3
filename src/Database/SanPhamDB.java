@@ -4,11 +4,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import utils.Account;
-import utils.DiaNhac;
-import utils.DiaPhim;
-import utils.Sach;
-import utils.SanPham;
+import DoiTuongChinh.Account;
+import DoiTuongChinh.DiaNhac;
+import DoiTuongChinh.DiaPhim;
+import DoiTuongChinh.Sach;
+import DoiTuongChinh.SanPham;
 
 public class SanPhamDB {
     private Connection connection;
@@ -77,15 +77,18 @@ public class SanPhamDB {
     }
 
     public void deleteSanPham(SanPham sp) throws SQLException{
+        
         Statement st = connection.createStatement();
-        String delete = "DELETE FROM "+TABLE_DS_SP +" WHERE "
-                + COLUMN_DS_SP_1 + " = \""+sp.getTen()+"\"";
-        int result = st.executeUpdate(delete);
-        
-        
-        delete = "DELETE FROM "+TABLE_CT_SP +" WHERE "
+        String delete = "DELETE FROM "+TABLE_CT_SP +" WHERE "
                 + COLUMN_CT_SP_1 + " = \""+sp.getTen()+"\"";
-        result = st.executeUpdate(delete);
+        st.execute(delete);
+        
+        delete = "DELETE FROM "+TABLE_DS_SP +" WHERE "
+                + COLUMN_DS_SP_1 + " = \""+sp.getTen()+"\"";
+        st.execute(delete);
+        
+        
+        
     }
 
     public void updateSanPham(SanPham sp) throws SQLException{
@@ -199,7 +202,8 @@ public class SanPhamDB {
                 + COLUMN_DS_SP_1+" = \""+name+"\"";
         ResultSet rs = st.executeQuery(select);
         rs.first();
-        
-        return new SanPham(rs.getString(2),rs.getString(3),rs.getInt(4),rs.getInt(5),rs.getInt(6));
+        SanPham result = new SanPham(rs.getString(1),rs.getString(2),rs.getInt(3),rs.getInt(4),rs.getInt(5));
+        rs.close();
+        return result;
     }
 }
